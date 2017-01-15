@@ -1,7 +1,7 @@
 close all;
 clear all;
 
-% assume that NA = 1 and f-number = 0.5;
+% assume that NA = 1 and f-number = 0.5
 % 0.61 lambda = first dark ring = 2.5*FWHM
 % wavelength: orange = 573, red = 702
 % disk size: orange = 48, red = 28
@@ -10,6 +10,7 @@ clear all;
 lambda = 0.573;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
+noise = 60;
 
 %% computation of the 1D airy pattern
 firstdark = lambda * 0.61;
@@ -56,19 +57,19 @@ img = img(imgcen-imgcen/2:imgcen+imgcen/2, imgcen-imgcen/2:imgcen+imgcen/2);
 
 %% monte carlo start
 
-rep = 10;
+rep = 1000;
 data = zeros(1,rep);
 
-for i=1:rep
+parfor i=1:rep
 
     %% add noise
     [X, Y] = meshgrid(-1:2/(N):1);
-    img=img+20*(rand(size(X,1),size(Y,2))-0.5);
+    imgtemp=img+noise*(rand(size(X,1),size(Y,2))-0.5);
 
     %% pixelation
     fun = @(block_struct) ...
        mean2(block_struct.data) * ones(size(block_struct.data));
-    imgpixel = blockproc(img,[blocksize, blocksize],fun);
+    imgpixel = blockproc(imgtemp,[blocksize, blocksize],fun);
 
     %% gaussian fit of the airy disk
 
@@ -100,3 +101,8 @@ for i=1:rep
     % sol_zeromean = solparout_zeromean(3);
     
 end
+
+hist(data);
+
+savefile_data = './data.mat';
+save(savefile_data, 'data');
