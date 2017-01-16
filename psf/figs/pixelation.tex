@@ -1,0 +1,47 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=6.028in,
+height=4.754in,
+at={(1.011in,0.642in)},
+scale only axis,
+xmin=564.423963133641,
+xmax=724.423963133641,
+xlabel style={font=\color{white!15!black}},
+xlabel={wavelength (nm)},
+ymin=1.02315328467153,
+ymax=1.14315328467153,
+ylabel style={font=\color{white!15!black}},
+ylabel={estimated wavelength/actual wavelength},
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={pixelation impact},
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+573	1.05391304347826\\
+650	1.04061302681992\\
+720	1.03391003460208\\
+};
+\addlegendentry{100nm}
+
+\addplot [color=mycolor2, mark=o, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+573	1.13304347826087\\
+650	1.10651340996169\\
+720	1.08719723183391\\
+};
+\addlegendentry{160nm}
+
+\end{axis}
+\end{tikzpicture}%

@@ -10,8 +10,8 @@ clear all;
 lambda = 0.573;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
-noise = 0.3;
-gain = 1.0;
+noise = 0.0;
+gain = 2;
 
 %% computation of the 1D airy pattern
 firstdark = lambda * 0.61;
@@ -58,11 +58,11 @@ img = img(imgcen-imgcen/2:imgcen+imgcen/2, imgcen-imgcen/2:imgcen+imgcen/2);
 
 %% monte carlo start
 
-rep = 1000;
+rep = 1;
 width = zeros(1,rep);
 inten = zeros(1,rep);
 
-parfor i=1:rep
+for i=1:rep
 
     %% add noise
     [X, Y] = meshgrid(-1:2/(N):1);
@@ -105,9 +105,9 @@ parfor i=1:rep
     
 end
 
-hist(width);
-
-savefile_width = './width_03_10.mat';
-savefile_inten = './inten_03_10.mat';
-save(savefile_width, 'width');
-save(savefile_inten, 'inten');
+% hist(width);
+% 
+% savefile_width = './width_03_10.mat';
+% savefile_inten = './inten_03_10.mat';
+% save(savefile_width, 'width');
+% save(savefile_inten, 'inten');

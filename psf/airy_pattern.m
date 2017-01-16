@@ -7,7 +7,7 @@ clear all;
 % disk size: orange = 48, red = 28
 
 %% input
-lambda = 0.573;
+lambda = 0.450;
 disksize = 0.048;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
@@ -82,6 +82,7 @@ output = 20*output/max(max(output)); % normalize the convolution
 %% pixelation
 fun = @(block_struct) ...
    mean2(block_struct.data) * ones(size(block_struct.data));
+imgpixel = blockproc(img,[blocksize, blocksize],fun);
 outputpixel = blockproc(output,[blocksize, blocksize],fun);
 
 
@@ -129,16 +130,16 @@ xdata = zeros(size(X,1),size(Y,2),2);
 xdata(:,:,1) = X;
 xdata(:,:,2) = Y;
 
-% solparz = lsqcurvefit(@d2gaussian,params,xdata,img);
-% solparz_pixel = lsqcurvefit(@d2gaussian,params,xdata,imgpixel);
+solparz = lsqcurvefit(@d2gaussian,params,xdata,img);
+solparz_pixel = lsqcurvefit(@d2gaussian,params,xdata,imgpixel);
 
-solparout = lsqcurvefit(@d2gaussian,params,xdata,output);
-solparout_pixel = lsqcurvefit(@d2gaussian,params,xdata,outputpixel);
+% solparout = lsqcurvefit(@d2gaussian,params,xdata,output);
+% solparout_pixel = lsqcurvefit(@d2gaussian,params,xdata,outputpixel);
 
 % solparout_zeromean = lsqcurvefit(@d2gaussian_zeromean,params_zeromean,xdata,output);
 
-% solz = solparz(3);
-% solz_pixel = solparz_pixel(3);
-sol = solparout(3);
-sol_pixel = solparout_pixel(3);
+solz = solparz(3);
+solz_pixel = solparz_pixel(3);
+% sol = solparout(3);
+% sol_pixel = solparout_pixel(3);
 % sol_zeromean = solparout_zeromean(3);
