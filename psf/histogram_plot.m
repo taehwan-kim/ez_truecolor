@@ -15,13 +15,13 @@ subplot(2,1,1);
 hist(width_03_10);
 xlim([0.9 0.95]);
 subplot(2,1,2);
-hist(width_03_15);
+histfit(width_03_15);
 xlim([0.9 0.95]);
 
 figure(2);
 subplot(2,1,1);
-hist(inten_03_10);
+histfit(inten_03_10);
 xlim([0.25 0.35]);
 subplot(2,1,2);
-hist(inten_03_15);
-xlim([0.25 0.35]);0
+histfit(inten_03_15);
+xlim([0.25 0.35]);
