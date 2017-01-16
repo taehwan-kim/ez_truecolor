@@ -11,7 +11,7 @@ lambda = 0.573;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
 noise = 0.3;
-gain = 1.5;
+gain = 1.0;
 
 %% computation of the 1D airy pattern
 firstdark = lambda * 0.61;
@@ -105,9 +105,9 @@ parfor i=1:rep
     
 end
 
-hist(data);
+hist(width);
 
-savefile_width = './width_03_15.mat';
-savefile_inten = './inten_03_15.mat';
+savefile_width = './width_03_10.mat';
+savefile_inten = './inten_03_10.mat';
 save(savefile_width, 'width');
 save(savefile_inten, 'inten');
