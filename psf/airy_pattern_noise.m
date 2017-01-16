@@ -10,7 +10,8 @@ clear all;
 lambda = 0.573;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
-noise = 60;
+noise = 0.3;
+gain = 1.5;
 
 %% computation of the 1D airy pattern
 firstdark = lambda * 0.61;
@@ -58,13 +59,14 @@ img = img(imgcen-imgcen/2:imgcen+imgcen/2, imgcen-imgcen/2:imgcen+imgcen/2);
 %% monte carlo start
 
 rep = 1000;
-data = zeros(1,rep);
+width = zeros(1,rep);
+inten = zeros(1,rep);
 
 parfor i=1:rep
 
     %% add noise
     [X, Y] = meshgrid(-1:2/(N):1);
-    imgtemp=img+noise*(rand(size(X,1),size(Y,2))-0.5);
+    imgtemp=gain*img+noise*(rand(size(X,1),size(Y,2)));
 
     %% pixelation
     fun = @(block_struct) ...
@@ -96,6 +98,7 @@ parfor i=1:rep
 
     % solz = solparz(3);
     data(i) = sqrt(solparz_pixel(3)^2 + solparz_pixel(5)^2);
+    inten(i) = solparz_pixel(1);
     % sol = solparout(3);
     % sol_pixel = solparout_pixel(3);
     % sol_zeromean = solparout_zeromean(3);
@@ -104,5 +107,7 @@ end
 
 hist(data);
 
-savefile_data = './data.mat';
-save(savefile_data, 'data');
+savefile_width = './width_03_15.mat';
+savefile_inten = './inten_03_15.mat';
+save(savefile_width, 'width');
+save(savefile_inten, 'inten');
