@@ -10,7 +10,7 @@ clear all;
 lambda = 0.573;
 pixelsize = 0.16;
 N = 1024;                      % resolution: 2/N
-noise = 0.05;
+noise = 0.10;
 gain = 1.0;
 
 %% computation of the 1D airy pattern
@@ -107,7 +107,7 @@ end
 
 hist(width);
 
-savefile_width = './width_005_10.mat';
-savefile_inten = './inten_005_10.mat';
+savefile_width = './width_010_10.mat';
+savefile_inten = './inten_010_10.mat';
 save(savefile_width, 'width');
 save(savefile_inten, 'inten');
