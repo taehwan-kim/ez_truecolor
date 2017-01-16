@@ -97,7 +97,7 @@ parfor i=1:rep
     % solparout_zeromean = lsqcurvefit(@d2gaussian_zeromean,params_zeromean,xdata,output);
 
     % solz = solparz(3);
-    data(i) = sqrt(solparz_pixel(3)^2 + solparz_pixel(5)^2);
+    width(i) = sqrt(solparz_pixel(3)^2 + solparz_pixel(5)^2);
     inten(i) = solparz_pixel(1);
     % sol = solparout(3);
     % sol_pixel = solparout_pixel(3);
