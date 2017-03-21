@@ -2,7 +2,7 @@ clc; close all;
 
 NA = 1.25;
 nm = 1.5;
-lambda = 600e-9;
+lambda = 500e-9;
 pixelsize = 100e-9;
 numofpixels = 20;
 background = 10;
@@ -83,7 +83,7 @@ dataforsave(1,:) = N;
 dataforsave(2,:) = sigmas(1,:);
 dataforsave(3,:) = sigmas(3,:);
 
-filename = ('par_N_data.mat');
+filename = ('par_N_data_500.mat');
 save(filename, 'dataforsave');
 
 
