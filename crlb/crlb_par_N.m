@@ -78,7 +78,8 @@ for h=1:length(N)
     end
 end
 
-
+filename = ('par_N_data.mat');
+save(filename, 'sigmas');
 
 
 %CRLB=I33^-1;
