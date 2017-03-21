@@ -46,32 +46,25 @@ for i=1:numofpixels/2
     end
 end
 
+I33(2,1) = I33(1,2);
+I33(3,1) = I33(1,3);
+I33(3,2) = I33(2,3);
+
+CRLB=I33^-1;
+
 %  imagesc(dmudNarray);
-A = dmudNarray/dmudNarray(1,1);
-B = fliplr(A);
-C = flipud(B);
-D = flipud(A);
-aa = [C D;B A];
-imagesc(aa);
+% A = dmudNarray/dmudNarray(1,1);
+% B = fliplr(A);
+% C = flipud(B);
+% D = flipud(A);
+% aa = [C D;B A];
+% imagesc(aa);
 % 
 % psf = PSFGenerator.get;
 % temptemp=psf(:,:,14);
 
-I33(2,1) = I33(1,2);
-I33(3,1) = I33(1,3);
-I33(3,2) = I33(2,3);
-% 
-CRLB=I33^-1;
-% xacc = CRLB(1,1);
 sigmas = zeros(1,3);
 for i=1:3
     sigmas(i) = sqrt(CRLB(i,i));
 end
 
-
-% 
-% muk = dmudNarray * N;
-
-
-
-% temp = integral2(dqdx,0,pixelsize,0,pixelsize);
