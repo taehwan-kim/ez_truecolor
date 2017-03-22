@@ -1,9 +1,9 @@
 clc; close all;
 
 N = 1500;
-NA = 1.25;
+NA = 1.4;
 nm = 1.5;
-lambda = 450e-9;
+lambda = 600e-9;
 pixelsize = 100e-9;
 numofpixels = 20;
 background = 10;
@@ -84,7 +84,7 @@ dataforsave(1,:) = z0;
 dataforsave(2,:) = sigmas(1,:);
 dataforsave(3,:) = sigmas(3,:);
 
-filename = ('par_z_data_450.mat');
+filename = ('par_z_data_600.mat');
 save(filename, 'dataforsave');
 
 
