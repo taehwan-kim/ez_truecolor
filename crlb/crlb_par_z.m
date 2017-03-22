@@ -3,13 +3,13 @@ clc; close all;
 N = 1500;
 NA = 1.25;
 nm = 1.5;
-lambda = 600e-9;
+lambda = 550e-9;
 pixelsize = 100e-9;
 numofpixels = 20;
 background = 10;
 
 z0_range = 500e-9;
-z0 = linspace(0, z0_range, 3);
+z0 = linspace(0, z0_range, 11);
 
 pixelindex = linspace(0, (numofpixels/2)*pixelsize, numofpixels/2+1);
 
@@ -79,7 +79,13 @@ for h=1:length(z0)
     end
 end
 
+dataforsave = zeros(3,length(z0));
+dataforsave(1,:) = z0;
+dataforsave(2,:) = sigmas(1,:);
+dataforsave(3,:) = sigmas(3,:);
 
+filename = ('par_z_data_550.mat');
+save(filename, 'dataforsave');
 
 
 %CRLB=I33^-1;
