@@ -1,6 +1,7 @@
 clc; clear; close all;
 
-N = 1500;
+% N = 200*linspace(1,10,10);
+N = [1000 2000];
 NA = 1.4;
 nm = 1.5;
 z0 = 0e-9;
@@ -9,7 +10,6 @@ pixelsize = 100e-9;
 numofpixels = 10;
 backgroundphotons = 10;
 rep = 100;
-
 
 pixelindex = linspace(0, (numofpixels/2)*pixelsize, numofpixels/2+1);
 
@@ -37,7 +37,7 @@ end
 
 Az0 = sum(qarray)*4;
 
-muarray = qarray * N / Az0;
+muarray = qarray / Az0;
 
 for i=1:numofpixels/2
     for j=1:numofpixels/2
@@ -47,32 +47,37 @@ for i=1:numofpixels/2
     end
 end
 
-
 psfmodel = [rot90(psfmodel,2) flipud(psfmodel) ; fliplr(psfmodel) psfmodel];
-coordinatesx = [rot90(coordinatesx,2) flipud(coordinatesx) ; fliplr(coordinatesx) coordinatesx];
-coordinatesy = [rot90(coordinatesy,2) flipud(coordinatesy) ; fliplr(coordinatesy) coordinatesy];
+coordinatesx = [-1*rot90(coordinatesx,2) flipud(coordinatesx) ; -1*fliplr(coordinatesx) coordinatesx];
+coordinatesy = [rot90(coordinatesy,2) flipud(coordinatesy) ; -1*fliplr(coordinatesy) -1*coordinatesy];
 coordinates(:,:,1) = coordinatesx*1e9;
 coordinates(:,:,2) = coordinatesy*1e9;
 
 background = backgroundphotons * ones(size(psfmodel));
 
-expected_size = 0.61e9*lambda/NA;
+expected_size = 0.61e9*lambda/NA/2;
 
-middlepatch = integral2(qraw,-1*pixelsize/2,1*pixelsize/2,-1*pixelsize/2,1*pixelsize/2)*N/Az0;
+middlepatch = integral2(qraw,-1*pixelsize/2,1*pixelsize/2,-1*pixelsize/2,1*pixelsize/2)/Az0;
 
-params = [middlepatch, 0, expected_size, 0, expected_size, backgroundphotons];
+estimated_size_ls = zeros(length(N), rep);
+estimated_size_mle = zeros(length(N), rep);
 
+% OPTIONS = optimoptions('lsqcurvefit','Algorithm','levenberg-marquardt');
+% UBOUND = [2*middlepatch, 1e9*pixelindex(end), 2*expected_size, 1e9*pixelindex(end), 2*expected_size, 2*backgroundphotons];
+% LBOUND = [0, -1e9*pixelindex(end), 0, -1e9*pixelindex(end), 0, 0];
 
-expectedsignal = zeros(numofpixels, numofpixels, rep);
-estimated_size = zeros(1, rep);
+for h=1:length(N)
+    for i=1:rep
 
+        params = [N(h) * middlepatch, 0, expected_size, 0, expected_size, backgroundphotons];
+        expectedsignal = zeros(numofpixels, numofpixels, rep);
+        expectedsignal(:,:,i) = poissrnd(N(h)*psfmodel) + poissrnd(background);
+        solparz_pixel_ls = lsqcurvefit(@d2gaussian_est,params,coordinates,expectedsignal(:,:,i));
+        estimated_size_ls(h,i) = 2*NA*sqrt(solparz_pixel_ls(3)^2+solparz_pixel_ls(5)^2)/0.61;
+        solparz_pixel_mle = MLEwG(coordinates, expectedsignal(:,:,i),params);
+        estimated_size_mle(h,i) = 2*NA*sqrt(solparz_pixel_mle(3)^2+solparz_pixel_mle(5)^2)/0.61;
 
-for i=1:rep
-
-    expectedsignal(:,:,i) = poissrnd(psfmodel) + poissrnd(background);
-    solparz_pixel = lsqcurvefit(@d2gaussian,params,coordinates,expectedsignal(:,:,i));
-    estimated_size(i) = sqrt(solparz_pixel(3)^2+solparz_pixel(5)^2);
-
+    end
 end
 
 
