@@ -1,0 +1,18 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'meeting_032717.blg'
+[49] biber-darwin:303> INFO - === Thu Mar 23, 2017, 09:04:26
+[75] Biber.pm:359> INFO - Reading 'meeting_032717.bcf'
+[192] Biber.pm:835> INFO - Found 7 citekeys in bib section 0
+[204] Biber.pm:3670> INFO - Processing section 0
+[223] Biber.pm:3840> INFO - Looking for bibtex format file 'refs.bib' for section 0
+[225] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[232] bibtex.pm:1292> INFO - Found BibTeX data source 'refs.bib'
+[263] Utils.pm:164> WARN - ISBN '1548-7091' in entry 'prism' is invalid - run biber with '--validate_datamodel' for details.
+[325] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[325] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[325] Biber.pm:3499> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'en-US'
+[325] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[332] bbl.pm:608> INFO - Writing 'meeting_032717.bbl' with encoding 'ascii'
+[337] Utils.pm:164> WARN - The entry 'delft' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[339] bbl.pm:712> INFO - Output to meeting_032717.bbl
+[340] Biber.pm:109> INFO - WARNINGS: 2

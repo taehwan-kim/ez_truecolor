@@ -1,0 +1,303 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{none/global/}
+    \entry{Gratings}{article}{}
+      \name{author}{3}{}{%
+        {{hash=337f1f607e3e98945f098b084c230d3b}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yinfa},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a8e9efb238c34f75258b12ee09971a8e}{%
+           family={Shortreed},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=3b217af2b121d2c083070d0222a782ad}{%
+           family={Yeung},
+           familyi={Y\bibinitperiod},
+           given={Edward\bibnamedelima S.},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{900e3738fdf1a33c32445d80c734680f}
+      \strng{fullhash}{41a4ebc0163131e0419d885c20cac250}
+      \strng{authornamehash}{900e3738fdf1a33c32445d80c734680f}
+      \strng{authorfullhash}{41a4ebc0163131e0419d885c20cac250}
+      \field{sortinit}{1}
+      \field{sortinithash}{27a2bc5dfb9ed0a0422134d636544b5d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Analytical Chemistry}
+      \field{number}{19}
+      \field{title}{High-Throughput Single-Molecule Spectroscopy in Free Solution}
+      \field{volume}{72}
+      \field{year}{2000}
+      \field{pages}{4640\bibrangedash 4645}
+      \range{pages}{6}
+    \endentry
+    \entry{prism}{article}{}
+      \name{author}{5}{}{%
+        {{hash=0f8ce5046fcb3062c1b49bda0f35e1a8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhengyang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=e26eaebd60e745111214242fe3eca3a1}{%
+           family={Kenny},
+           familyi={K\bibinitperiod},
+           given={Samuel\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=681bd963a6bfd6931d60800c879551d5}{%
+           family={Hauser},
+           familyi={H\bibinitperiod},
+           given={Margaret},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a3270f2c2d06ac67fd026051afa79edd}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Wan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=6ccd6b6d635d297a3626c29742a8674c}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Ke},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.}%
+      }
+      \strng{namehash}{577d34ecab401d42063ba864503f5191}
+      \strng{fullhash}{e9fb688540917c0b9ec252c06e5650ab}
+      \strng{authornamehash}{577d34ecab401d42063ba864503f5191}
+      \strng{authorfullhash}{e9fb688540917c0b9ec252c06e5650ab}
+      \field{sortinit}{2}
+      \field{sortinithash}{0aa614ace9f3a40ef5a67e7f7a184048}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1548-7091}
+      \field{journaltitle}{Nat Meth}
+      \field{number}{10}
+      \field{title}{Ultrahigh-throughput single-molecule spectroscopy and spectrally resolved super-resolution microscopy}
+      \field{volume}{12}
+      \field{year}{2015}
+      \field{pages}{935\bibrangedash 938}
+      \range{pages}{4}
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nmeth.3528
+      \endverb
+    \endentry
+    \entry{natphot}{article}{}
+      \name{author}{5}{}{%
+        {{hash=396cd825ce764cd912c837083fb179b9}{%
+           family={Shechtman},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=83d6d76ce56c02b2477f308fe19a1b30}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={L.\bibnamedelimi E.},
+           giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=e25d67c6b8d35616921e4ad9622c54b4}{%
+           family={Backer},
+           familyi={B\bibinitperiod},
+           given={A.\bibnamedelimi S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=52d020a1941ac63761cbc3131bb62493}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={M.\bibnamedelimi Y.},
+           giveni={M\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=72c5e0884a2b093f892775ec25c7886a}{%
+           family={Moerner},
+           familyi={M\bibinitperiod},
+           given={W.\bibnamedelimi E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{dcbd98b5b34f3e980809159e8ccdc27c}
+      \strng{fullhash}{148f55d1f4fb443b502d8c9b7527605c}
+      \strng{authornamehash}{dcbd98b5b34f3e980809159e8ccdc27c}
+      \strng{authorfullhash}{148f55d1f4fb443b502d8c9b7527605c}
+      \field{sortinit}{3}
+      \field{sortinithash}{197da6d6c34c6b20ce45c4d4baace5a4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nat Photon}
+      \field{title}{Multicolour localization microscopy by point-spread-function engineering.}
+      \field{volume}{10}
+      \field{year}{2016}
+      \field{pages}{590\bibrangedash 594}
+      \range{pages}{5}
+    \endentry
+    \entry{locacc}{article}{}
+      \name{author}{3}{}{%
+        {{hash=27a453efc3e137bb37e3dc1b66756f1d}{%
+           family={Ober},
+           familyi={O\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=4d40f58252473b926b5cd86ef6da0ea4}{%
+           family={Ram},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=521dd94a9558ff43099f4d7d0c637882}{%
+           family={Ward},
+           familyi={W\bibinitperiod},
+           given={E.\bibnamedelimi S.},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{8abd5b5195c6b4db9fab935d2e4a2943}
+      \strng{fullhash}{947a7253527d20933cad1f1fa7491ccd}
+      \strng{authornamehash}{8abd5b5195c6b4db9fab935d2e4a2943}
+      \strng{authorfullhash}{947a7253527d20933cad1f1fa7491ccd}
+      \field{sortinit}{4}
+      \field{sortinithash}{d221becdd544034cf9082056cd6e6d2d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biophysical Journal}
+      \field{title}{Localization Accuracy in Single-Molecule Microscopy}
+      \field{volume}{86}
+      \field{year}{2004}
+      \field{pages}{1185\bibrangedash 1200}
+      \range{pages}{16}
+    \endentry
+    \entry{biplane}{article}{}
+      \name{author}{5}{}{%
+        {{hash=4d40f58252473b926b5cd86ef6da0ea4}{%
+           family={Ram},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1915fbdf52a677692c191abefdb1a8a1}{%
+           family={Prabhat},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4c0b1f8bc5b52a94fea759612a9c6560}{%
+           family={Chao},
+           familyi={C\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=521dd94a9558ff43099f4d7d0c637882}{%
+           family={Ward},
+           familyi={W\bibinitperiod},
+           given={E.\bibnamedelimi S.},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=27a453efc3e137bb37e3dc1b66756f1d}{%
+           family={Ober},
+           familyi={O\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{005b6d8fb1f2f85938ce6bed4b9aadb0}
+      \strng{fullhash}{e1a401048a774e550582a09d32f4b18d}
+      \strng{authornamehash}{005b6d8fb1f2f85938ce6bed4b9aadb0}
+      \strng{authorfullhash}{e1a401048a774e550582a09d32f4b18d}
+      \field{sortinit}{5}
+      \field{sortinithash}{c9df3c9fb8f555dd9201cedc5e343021}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biophysical Journal}
+      \field{title}{High Accuracy 3D Quantum Dot Tracking with Multifocal Plane Microscopy for the Study of Fast Intracellular Dynamics in Live Cells}
+      \field{volume}{95}
+      \field{year}{2008}
+      \field{pages}{6025\bibrangedash 6043}
+      \range{pages}{19}
+    \endentry
+    \entry{delft}{article}{}
+      \name{author}{5}{}{%
+        {{hash=d0838c7f707526da2e92550b604a290d}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6ad3b741f802a37d53ef8eea408710ef}{%
+           family={Huisman},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=95c788bf18e5e60ac1488c1453f8e5e2}{%
+           family={Siemons},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b6526b8698789105dce68a1ef53c50a4}{%
+           family={D.},
+           familyi={D\bibinitperiod},
+           given={Gr\"{u}nwald},
+           giveni={G\bibinitperiod}}}%
+        {{hash=07d203f88492c51a9d21ed769ec38a0e}{%
+           family={Stallinga},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{eace93fef846bff31169f7e9108655f7}
+      \strng{fullhash}{c55f55522c3ef16592a2537a83399ade}
+      \strng{authornamehash}{eace93fef846bff31169f7e9108655f7}
+      \strng{authorfullhash}{c55f55522c3ef16592a2537a83399ade}
+      \field{sortinit}{6}
+      \field{sortinithash}{02bbed3ed82f61ae046619460488516d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Optics Express}
+      \field{title}{Simultaneous measurement of emission color and 3D position of single molecules}
+      \field{volume}{24}
+      \field{year}{2016}
+    \endentry
+    \entry{psfj}{article}{}
+      \name{author}{3}{}{%
+        {{hash=67cc7b4e7be1907a1522add8143ab710}{%
+           family={Theer},
+           familyi={T\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3bd0a9942fefef9a7941ab164852b220}{%
+           family={Mongis},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9a8053e2111924195ad58ea8b242c24d}{%
+           family={Knop},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{733409dba326e82004d3c084d6974f82}
+      \strng{fullhash}{7ece6302fd4c3a07f0b1ca47d27e99f0}
+      \strng{authornamehash}{733409dba326e82004d3c084d6974f82}
+      \strng{authorfullhash}{7ece6302fd4c3a07f0b1ca47d27e99f0}
+      \field{sortinit}{8}
+      \field{sortinithash}{2f1b0e69e7617f99664f1cd00bb9603c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nat Meth}
+      \field{title}{PSFj: know your fluorescence microscope}
+      \field{volume}{11}
+      \field{year}{2014}
+      \field{pages}{981\bibrangedash 982}
+      \range{pages}{2}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

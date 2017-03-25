@@ -1,0 +1,143 @@
+% Title: Block diagram of Third order noise shaper in Compact Disc Players
+% Author: Ramón Jaramillo
+%\documentclass[tikz,14pt,border=10pt]{standalone}
+
+%\begin{document}
+% Definition of blocks:
+\tikzset{%
+	block/.style    = {fill=white, draw, thick, rectangle, minimum height = 3em, minimum width = 3em},
+  	sum/.style      = {fill=white, draw, circle, minimum size=0.7cm, node distance = 2cm}, % Adder
+	point/.style 	= {
+		circle,inner sep=0pt,minimum size=0pt,fill=black,draw=black
+	},
+	cross/.style = {
+		cross out, 
+		draw=black, 
+		minimum size=2*(#1-\pgflinewidth), 
+		inner sep=0pt, 
+		outer sep=0pt
+	},
+	cross/.default = {
+		1pt
+	},
+  	input/.style    = {coordinate}, % Input
+  	output/.style   = {coordinate} % Output
+}
+% Defining string as labels of certain blocks.
+
+\definecolor{myblue}{RGB}{75,213,217}
+\definecolor{mygreen}{RGB}{189,242,113}
+
+\newcommand{\suma}{\Large$+$}
+\newcommand{\lo}{\Large$\sim$}
+\newcommand{\inte}{{$\bigintssss$}}
+\newcommand{\derv}{\Large$\tau\frac{d}{dt}$}
+\newcommand*{\myfont}{\fontfamily{phv}\selectfont}
+\newcommand*{\mfm}[1]{ { \textrm{\myfont{\textit{{#1}}}} } }
+
+\begin{tikzpicture}[auto, thick, node distance=2cm, >=triangle 45]
+\draw
+    % Drawing the blocks of first filter :
+    %node at (0,0)[right=-3mm]{\Large \textopenbullet}
+    %node [input, name=input1, point, circle, draw, fill=white, minimum size=3pt] {} 
+	node [sum, name=input1, label={below:\myfont{LO}}] {} node at (input1) [yshift=-0.5mm] {\lo} 
+	%node [sum, right of=input1] (suma1) {} node at (suma1) [cross=5pt, very thick, rotate=45] {} 
+	node [block, right of=input1] (pfd) {\myfont{PFD}}
+
+	node [point, right of=pfd, minimum size=4pt, xshift=-0.5cm] (pt1) {}
+	node [sum, right of=pt1, xshift=-0.5cm, yshift=1cm] (prop) {} node at (prop) [cross=5pt, thick] {}
+	node [sum, right of=pt1, xshift=-0.5cm, yshift=-1cm] (intp) {} node at (intp) [cross=5pt, thick] {}
+	node [above of=prop, yshift=-0.7cm] (alpha) {$\alpha$}
+	node [below of=intp, yshift=0.7cm] (beta) {$\beta$}
+	node [block, right of=intp] (acc) {\Large$\Sigma$}
+	node [sum, right of=acc, xshift=-0.5cm, yshift=1cm] (sum) {} node at (sum) [cross=5pt, thick, rotate=45] {}
+
+
+    node [block, right of=sum] (inte) {\inte}
+	%node [point, right of=inte,xshift=-0.5cm, minimum size=1pt] (pt1) {}
+
+	node [block, right of=inte, xshift=0.5cm] (laser) {\myfont{Laser}}
+
+	node [block, below of=laser, yshift=-1cm, label={below:\myfont{MZI+PD}}] (diff) {\derv};
+    % Joining blocks. 
+    % Commands \draw with options like [->] must be written individually
+	\draw (pfd) -- (pt1.center);
+
+    \draw[->](input1) -- node {}(pfd);
+    \draw[->](sum) -- node {} (inte);
+    \draw[->](pt1.center) |- node {} (prop);
+    \draw[->](pt1.center) |- node {} (intp);
+    \draw[->](intp) -- node {} (acc);
+    \draw[->](prop) -| node {} (sum);
+
+    \draw[->](alpha) -- node {} (prop);
+    \draw[->](beta) -- node {} (intp);
+
+    \draw[->](acc) -| node {} (sum);
+    \draw[->](inte) -- node {} (laser);
+    \draw[->](laser) -- node {} (diff);
+    \draw[->](diff) -| node[near end]{} (pfd);
+    % Adder
+%\draw
+    %node at (5.4,-4) [sum, name=suma2] {\suma}
+        %% Second stage of filter 
+    %node at  (1,-6) [sum, name=suma3] {\suma}
+    %node [block, right of=suma3] (inte2) {\inte}
+    %node [sum, right of=inte2] (suma4) {\suma}
+    %node [block, right of=suma4] (inte3) {\inte}
+    %node [block, right of=inte3] (Q2) {\Large$Q_2$}
+    %node at (9,-8) [block, name=ret2] {\Large$T_2$}
+%;
+    %% Joining the blocks of second filter
+    %\draw[->] (suma3) -- node {} (inte2);
+    %\draw[->] (inte2) -- node {} (suma4);
+    %\draw[->] (suma4) -- node {} (inte3);
+    %\draw[->] (inte3) -- node {} (Q2);
+    %\draw[->] (ret2) -| (suma3);
+    %\draw[->] (ret2) -| (suma4);
+         % Third stage of filter:
+    % Defining nodes:
+%\draw
+    %node at (11.5, 0) [sum, name=suma5]{\suma}
+    %node [output, right of=suma5]{}
+    %node [block, below of=suma5] (deriv1){\derv}
+    %node [output, right of=suma5] (sal2){}
+%;
+    %% Joining the blocks:
+    %\draw[->] (suma2) -| node {}(suma3);
+    %\draw[->] (Q1) -- (8,0) |- node {}(ret1);
+    %\draw[->] (8,0) |- (suma2);
+    %\draw[->] (5.4,0) -- (suma2);
+    %\draw[->] (Q1) -- node {}(suma5);
+    %\draw[->] (deriv1) -- node {}(suma5);
+    %\draw[->] (Q2) -| node {}(deriv1);
+        %\draw[<->] (ret2) -| node {}(deriv1);
+        %\draw[->] (suma5) -- node {$Y(Z)$}(sal2);
+        %% Drawing nodes with \textbullet
+%\draw
+	%node [point, circle, minimum size=3pt] at (8,0) {} 
+	%node [point, circle, minimum size=3pt] at (8,-2) {} 
+	%node [point, circle, minimum size=3pt] at (5.4,0) {} 
+	%node [point, circle, minimum size=3pt] at (5,-8) {} 
+	%node [point, circle, minimum size=3pt] at (11.5,-6) {} 
+	%node at (8,-2){\textbullet}
+	%node at (5.4,0){\textbullet}
+		%node at (5,-8){\textbullet}
+		%node at (11.5,-6){\textbullet}
+		%;
+	% Boxing and labelling noise shapers
+
+	\begin{pgfonlayer}{background}
+		%\fill [rounded corners,fill=mygreen,thick](-0.8,-3.25) rectangle (7,1);
+		%\fill [rounded corners,fill=myblue,thick](7.25,-3.25) rectangle (9.5,1);
+	\end{pgfonlayer}
+	\draw [dashed, thick] ($(pfd.east)+(0.5,-2.6)$) rectangle ($(sum.center)+(0.6, 2.6)$);
+	%\node at() {LF}; 
+
+	%\node at (-0.5,1) [above=5mm, right=0mm] {\textsc{first-order noise shaper}};
+	%\draw [color=gray,thick](-0.5,-9) rectangle (12.5,-5);
+	%\node at (-0.5,-9) [below=5mm, right=0mm] {\textsc{second-order noise shaper}};
+
+\end{tikzpicture}
+
+%\end{document}
