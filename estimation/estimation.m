@@ -1,15 +1,15 @@
 clc; clear; close all;
 
-% N = 200*linspace(1,10,10);
-N = [1000 2000];
+N = 200*linspace(1,10,10);
+
 NA = 1.4;
 nm = 1.5;
 z0 = 0e-9;
 lambda = 600e-9;
 pixelsize = 100e-9;
 numofpixels = 10;
-backgroundphotons = 10;
-rep = 100;
+backgroundphotons = 100;
+rep = 1000;
 
 pixelindex = linspace(0, (numofpixels/2)*pixelsize, numofpixels/2+1);
 
@@ -61,23 +61,26 @@ middlepatch = integral2(qraw,-1*pixelsize/2,1*pixelsize/2,-1*pixelsize/2,1*pixel
 
 estimated_size_ls = zeros(length(N), rep);
 estimated_size_mle = zeros(length(N), rep);
+error_ls = zeros(1,length(N));
+error_mle = zeros(1,length(N));
 
 % OPTIONS = optimoptions('lsqcurvefit','Algorithm','levenberg-marquardt');
 % UBOUND = [2*middlepatch, 1e9*pixelindex(end), 2*expected_size, 1e9*pixelindex(end), 2*expected_size, 2*backgroundphotons];
 % LBOUND = [0, -1e9*pixelindex(end), 0, -1e9*pixelindex(end), 0, 0];
 
 for h=1:length(N)
-    for i=1:rep
+    params = [N(h) * middlepatch, 0, expected_size, 0, expected_size, backgroundphotons];
+    parfor i=1:rep
 
-        params = [N(h) * middlepatch, 0, expected_size, 0, expected_size, backgroundphotons];
-        expectedsignal = zeros(numofpixels, numofpixels, rep);
-        expectedsignal(:,:,i) = poissrnd(N(h)*psfmodel) + poissrnd(background);
-        solparz_pixel_ls = lsqcurvefit(@d2gaussian_est,params,coordinates,expectedsignal(:,:,i));
+        expectedsignal = poissrnd(N(h)*psfmodel) + poissrnd(background);
+        solparz_pixel_ls = lsqcurvefit(@d2gaussian_est,params,coordinates,expectedsignal);
         estimated_size_ls(h,i) = 2*NA*sqrt(solparz_pixel_ls(3)^2+solparz_pixel_ls(5)^2)/0.61;
-        solparz_pixel_mle = MLEwG(coordinates, expectedsignal(:,:,i),params);
+        solparz_pixel_mle = MLEwG(coordinates, expectedsignal,params);
         estimated_size_mle(h,i) = 2*NA*sqrt(solparz_pixel_mle(3)^2+solparz_pixel_mle(5)^2)/0.61;
 
     end
+    error_ls(h) = std(estimated_size_ls(h,:));
+    error_mle(h) = std(estimated_size_mle(h,:));
 end
 
 
