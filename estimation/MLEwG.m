@@ -55,7 +55,7 @@ y = coordinate(:,:,2);
 % -1 * SOM Eq (49)
 datafun = @(params)(sum (sum ((expected (x,y,params))))...
                         -sum (sum (data.*log (expected (x,y,params)))));
-options = optimset ('MaxFunEvals', 10000, 'MaxIter', 10000, 'TolFun', 1e-5);
+options = optimset ('MaxFunEvals', 10000, 'MaxIter', 10000, 'TolFun', 1e-7);
 % fminsearch performs the multivariable minimization
 [paramsF,fval,exitflag,output]  = fminsearch (datafun, params0, options);
 
